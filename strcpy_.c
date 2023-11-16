@@ -1,20 +1,21 @@
 #include "simple_shell.h"
 
 /**
- * strchr_ - searches for the first occurrence of
- *	a specific character in a string
- * @string: a pointer to a null-terminated string
- * @c: representing the character to be located within string
- * Return: a pointer to the first occurrence of the character
- *	c within the string, or NULL
+ * strcpy_ - copy a string from the source to the destination
+ * @destination: where the string from source will be copied
+ * @source: A pointer to a null-terminated string
+ * Return: a pointer to the beginning of the destination
  */
-char *strchr_(char *string, int c)
+char *strcpy_(char *destination, char *source)
 {
-	for (; *string != '\0'; string++)
-	{
-		if (*string == c)
-			return ((char *)string);
-	}
+	char *startDest;
 
-	return (NULL);
+	startDest = destination;
+
+	for (; *source != '\0'; destination++, source++)
+		*destination = *source;
+
+	*destination = '\0';
+
+	return (startDest);
 }
